@@ -18,9 +18,11 @@ void loop() {
 
   if(right == HIGH){
     Serial.println("go right");
+    delay(50);
   }
   if(left == HIGH){
     Serial.println("go left");
+    delay(50);
   }
 
 }
