@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using System.IO.Ports;
+using System;
+
 public class ChangeState : MonoBehaviour
 {
     public Camera effectCamera;
@@ -9,33 +12,73 @@ public class ChangeState : MonoBehaviour
     public int state = 0;
     public float iceSize, waterSize, gasSize;
     public GameObject[] particles;
+
+    bool isIce = false;
+    bool isWater = false;
+    bool isGas = false;
+
+    //Serial Port init
+    //name of serial port is different between computers, check under Port in Arduino IDE
+
+    //Serial port for Mac, right USB
+    SerialPort sp = new SerialPort("/dev/cu.usbmodem1421", 115200);
+
+    //Serial port for Windows, xx USB
+    // SerialPort sp = new SerialPort("COM3", 115200);
+
     // Start is called before the first frame update
     void Start()
     {
        particles = GameObject.FindGameObjectsWithTag("Particle");
        blurController = effectCamera.GetComponent<BlurController>();
        changeToIce();
+
+        //Start reading from serial monitor
+        sp.Open();
+        sp.ReadTimeout = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown("space")) 
-        {
-            state++;
-            if (state > 2){
-                state = 0;
-            }
-            if (state == 0){
+
+        try{
+            string readLine = sp.ReadLine();
+            //print(readLine);
+            
+            if (float.Parse(readLine) < 0.1)
+            {
                 changeToIce();
             }
-            else if (state == 1){
+            else if (float.Parse(readLine) > 0.1 && float.Parse(readLine) < 2.0)
+            {
                 changeToWater();
             }
-            else if (state == 2){
+            else if (float.Parse(readLine) >= 2.0){
                 changeToGas();
             }
         }
+        catch(System.Exception){
+        }
+
+//Control particles with space:
+
+        // if(Input.GetKeyDown("space")) 
+        // {
+        //     state++;
+        //     if (state > 2){
+        //         state = 0;
+        //     }
+        //     if (state == 0){
+        //         changeToIce();
+        //     }
+        //     else if (state == 1){
+        //         changeToWater();
+        //     }
+        //     else if (state == 2){
+        //         changeToGas();
+        //     }
+        // }
     }
 
     void changeToIce(){
