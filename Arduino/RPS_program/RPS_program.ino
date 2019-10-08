@@ -7,6 +7,7 @@ float hall_count;
 void setup() {
   // initialize serial communication at 9600 bits per second:
   Serial.begin(115200);
+  Serial.println("Starting...");
   // make the hall pin an input:
   pinMode(hall_pin, INPUT);
 }
@@ -21,7 +22,6 @@ void loop() {
   while(millis()-start_time < 1000){
     if (start_time > millis()) {
       start_time = millis();
-      Serial.println("overflow");
       hall_count = 0.0;
     }
     
@@ -36,5 +36,5 @@ void loop() {
     }
   }
   
-  Serial.println("RPM: " + String(hall_count));
+  Serial.println(String(hall_count/2));
 }
