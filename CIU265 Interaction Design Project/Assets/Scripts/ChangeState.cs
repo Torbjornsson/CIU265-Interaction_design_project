@@ -46,7 +46,7 @@ public class ChangeState : MonoBehaviour
     }
 
     void changeToIce(){
-        foreach(var particle in particles){
+        foreach(GameObject particle in particles){
             particle.GetComponent<Rigidbody2D>().gravityScale = 1;
             particle.GetComponent<CircleCollider2D>().enabled = false;
             particle.GetComponent<BoxCollider2D>().enabled = true;
@@ -56,7 +56,7 @@ public class ChangeState : MonoBehaviour
         textureWithShade.materials[0].SetColor("_Color", ice);
     }
     void changeToWater(){
-        foreach(var particle in particles){
+        foreach(GameObject particle in particles){
             particle.GetComponent<Rigidbody2D>().gravityScale = 1;
             particle.GetComponent<CircleCollider2D>().enabled = true;
             particle.GetComponent<BoxCollider2D>().enabled = false;
@@ -67,7 +67,7 @@ public class ChangeState : MonoBehaviour
     }
 
     void changeToGas(){
-        foreach(var particle in particles){
+        foreach(GameObject particle in particles){
             particle.GetComponent<Rigidbody2D>().gravityScale = -1;
             particle.GetComponent<CircleCollider2D>().enabled = true;
             particle.GetComponent<BoxCollider2D>().enabled = false;
