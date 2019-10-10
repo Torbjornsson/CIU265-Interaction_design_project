@@ -8,11 +8,15 @@ using System;
 public class ChangeState : MonoBehaviour
 {
     public Camera effectCamera;
+    public GameObject meshWithText;
     private BlurController blurController;
     public int state = 0;
     public float iceSize, waterSize, gasSize;
     public GameObject[] particles;
 
+    public Color ice, water, gas;
+    public MeshRenderer textureWithShade;
+    
     bool isIce = false;
     bool isWater = false;
     bool isGas = false;
@@ -31,6 +35,8 @@ public class ChangeState : MonoBehaviour
     {
        particles = GameObject.FindGameObjectsWithTag("Particle");
        blurController = effectCamera.GetComponent<BlurController>();
+       meshWithText = GameObject.Find("MeshWithTextureFromCamera");
+       textureWithShade = meshWithText.GetComponent<MeshRenderer>();
        changeToIce();
 
         //Start reading from serial monitor
@@ -86,18 +92,20 @@ public class ChangeState : MonoBehaviour
             particle.GetComponent<Rigidbody2D>().gravityScale = 1;
             particle.GetComponent<CircleCollider2D>().enabled = false;
             particle.GetComponent<BoxCollider2D>().enabled = true;
-            particle.transform.localScale = new Vector3(iceSize, iceSize, 1);
         }
         blurController.blurSpread = 0.1f;
+        blurController.iterations = 3;
+        textureWithShade.materials[0].SetColor("_Color", ice);
     }
     void changeToWater(){
         foreach(GameObject particle in particles){
             particle.GetComponent<Rigidbody2D>().gravityScale = 1;
             particle.GetComponent<CircleCollider2D>().enabled = true;
             particle.GetComponent<BoxCollider2D>().enabled = false;
-            particle.transform.localScale = new Vector3(waterSize, waterSize, 1);
         }
-        blurController.blurSpread = 0.2f;
+        blurController.blurSpread = 0.5f;
+        blurController.iterations = 7;
+        textureWithShade.materials[0].SetColor("_Color", water);
     }
 
     void changeToGas(){
@@ -105,8 +113,9 @@ public class ChangeState : MonoBehaviour
             particle.GetComponent<Rigidbody2D>().gravityScale = -1;
             particle.GetComponent<CircleCollider2D>().enabled = true;
             particle.GetComponent<BoxCollider2D>().enabled = false;
-            particle.transform.localScale = new Vector3(gasSize, gasSize, 1);
         }
-        blurController.blurSpread = 0.3f;
+        blurController.blurSpread = 0.2f;
+        blurController.iterations = 5;
+        textureWithShade.materials[0].SetColor("_Color", gas);
     }
 }
