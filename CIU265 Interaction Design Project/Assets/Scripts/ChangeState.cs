@@ -40,51 +40,50 @@ public class ChangeState : MonoBehaviour
        changeToIce();
 
         //Start reading from serial monitor
-        sp.Open();
-        sp.ReadTimeout = 1;
+        // sp.Open();
+        // sp.ReadTimeout = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        try{
-            string readLine = sp.ReadLine();
-            //print(readLine);
+        // try{
+        //     string readLine = sp.ReadLine();
+        //     //print(readLine);
             
-            if (float.Parse(readLine) < 0.1)
-            {
-                changeToIce();
-            }
-            else if (float.Parse(readLine) > 0.1 && float.Parse(readLine) < 2.0)
-            {
-                changeToWater();
-            }
-            else if (float.Parse(readLine) >= 2.0){
-                changeToGas();
-            }
-        }
-        catch(System.Exception){
-        }
-
-//Control particles with space:
-
-        // if(Input.GetKeyDown("space")) 
-        // {
-        //     state++;
-        //     if (state > 2){
-        //         state = 0;
-        //     }
-        //     if (state == 0){
+        //     if (float.Parse(readLine) < 0.1)
+        //     {
         //         changeToIce();
         //     }
-        //     else if (state == 1){
+        //     else if (float.Parse(readLine) > 0.1 && float.Parse(readLine) < 2.0)
+        //     {
         //         changeToWater();
         //     }
-        //     else if (state == 2){
+        //     else if (float.Parse(readLine) >= 2.0){
         //         changeToGas();
         //     }
         // }
+        // catch(System.Exception){
+        // }
+
+//Control particles with space:
+        if(Input.GetKeyDown("space")) 
+        {
+            state++;
+            if (state > 2){
+                state = 0;
+            }
+            if (state == 0){
+                changeToIce();
+            }
+            else if (state == 1){
+                changeToWater();
+            }
+            else if (state == 2){
+                changeToGas();
+            }
+        }
     }
 
     void changeToIce(){
