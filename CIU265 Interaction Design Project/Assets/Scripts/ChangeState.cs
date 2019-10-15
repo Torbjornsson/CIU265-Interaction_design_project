@@ -25,7 +25,7 @@ public class ChangeState : MonoBehaviour
     //name of serial port is different between computers, check under Port in Arduino IDE
 
     //Serial port for Mac, right USB
-    SerialPort sp = new SerialPort("/dev/cu.usbmodem1421", 115200);
+    SerialPort sp = new SerialPort("/dev/cu.usbmodem14201", 115200);
 
     //Serial port for Windows, xx USB
     // SerialPort sp = new SerialPort("COM3", 115200);
@@ -47,27 +47,27 @@ public class ChangeState : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
         try{
             string readLine = sp.ReadLine();
             //print(readLine);
             
-            if (float.Parse(readLine) < 0.1)
+            if (float.Parse(readLine) < 0.05)
             {
                 changeToIce();
             }
-            else if (float.Parse(readLine) > 0.1 && float.Parse(readLine) < 2.0)
+            else if (float.Parse(readLine) > 0.05 && float.Parse(readLine) < 1.0)
             {
                 changeToWater();
             }
-            else if (float.Parse(readLine) >= 2.0){
+            else if (float.Parse(readLine) >= 1.0){
                 changeToGas();
             }
         }
         catch(System.Exception){
         }
 
-//Control particles with space:
+        //Control particles with space:
 
         // if(Input.GetKeyDown("space")) 
         // {
@@ -85,6 +85,19 @@ public class ChangeState : MonoBehaviour
         //         changeToGas();
         //     }
         // }
+
+        if(Input.GetKeyDown(KeyCode.LeftArrow)) 
+        {
+            changeToIce();
+        }
+        if(Input.GetKeyDown(KeyCode.DownArrow)) 
+        {
+            changeToWater();
+        }
+        if(Input.GetKeyDown(KeyCode.RightArrow)) 
+        {
+            changeToGas();
+        }
     }
 
     void changeToIce(){
@@ -92,6 +105,7 @@ public class ChangeState : MonoBehaviour
             particle.GetComponent<Rigidbody2D>().gravityScale = 1;
             particle.GetComponent<CircleCollider2D>().enabled = false;
             particle.GetComponent<BoxCollider2D>().enabled = true;
+            particle.transform.localScale = new Vector3(iceSize, iceSize, 1);
         }
         blurController.blurSpread = 0.1f;
         blurController.iterations = 3;
@@ -102,6 +116,7 @@ public class ChangeState : MonoBehaviour
             particle.GetComponent<Rigidbody2D>().gravityScale = 1;
             particle.GetComponent<CircleCollider2D>().enabled = true;
             particle.GetComponent<BoxCollider2D>().enabled = false;
+            particle.transform.localScale = new Vector3(waterSize, waterSize, 1);
         }
         blurController.blurSpread = 0.5f;
         blurController.iterations = 7;
@@ -113,6 +128,7 @@ public class ChangeState : MonoBehaviour
             particle.GetComponent<Rigidbody2D>().gravityScale = -1;
             particle.GetComponent<CircleCollider2D>().enabled = true;
             particle.GetComponent<BoxCollider2D>().enabled = false;
+            particle.transform.localScale = new Vector3(gasSize, gasSize, 1);
         }
         blurController.blurSpread = 0.2f;
         blurController.iterations = 5;
