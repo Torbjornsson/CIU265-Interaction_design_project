@@ -8,6 +8,7 @@ using System;
 public class ChangeState : MonoBehaviour
 {
     public Camera effectCamera;
+    public Camera mainCamera;
     public GameObject meshWithText;
     private BlurController blurController;
     public int state = 0;
@@ -25,7 +26,7 @@ public class ChangeState : MonoBehaviour
     //name of serial port is different between computers, check under Port in Arduino IDE
 
     //Serial port for Mac, right USB
-    SerialPort sp = new SerialPort("/dev/cu.usbmodem14201", 115200);
+    //SerialPort sp = new SerialPort("/dev/cu.usbmodem14201", 115200);
 
     //Serial port for Windows, xx USB
     // SerialPort sp = new SerialPort("COM3", 115200);
@@ -40,14 +41,14 @@ public class ChangeState : MonoBehaviour
        changeToIce();
 
         //Start reading from serial monitor
-        sp.Open();
-        sp.ReadTimeout = 1;
+        //sp.Open();
+        //sp.ReadTimeout = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        /* 
         try{
             string readLine = sp.ReadLine();
             //print(readLine);
@@ -66,7 +67,7 @@ public class ChangeState : MonoBehaviour
         }
         catch(System.Exception){
         }
-
+ */
         //Control particles with space:
 
         // if(Input.GetKeyDown("space")) 
@@ -98,6 +99,7 @@ public class ChangeState : MonoBehaviour
         {
             changeToGas();
         }
+        moveCamera();
     }
 
     void changeToIce(){
@@ -133,5 +135,16 @@ public class ChangeState : MonoBehaviour
         blurController.blurSpread = 0.2f;
         blurController.iterations = 5;
         textureWithShade.materials[0].SetColor("_Color", gas);
+    }
+
+    void moveCamera(){
+        Vector2 minPos = particles[0].transform.position;
+        Vector2 maxPos = particles[0].transform.position;
+        foreach(GameObject particle in particles){
+            minPos = Vector2.Min(minPos, particle.transform.position);
+            maxPos = Vector2.Max(maxPos, particle.transform.position);
+        }
+        Vector3 newPos = new Vector3((minPos.x + maxPos.x)/2, (minPos.y + maxPos.y)/2, -10);
+        mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, newPos, Time.deltaTime);
     }
 }
