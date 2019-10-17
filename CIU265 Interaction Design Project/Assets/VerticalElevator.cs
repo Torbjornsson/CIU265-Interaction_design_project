@@ -38,32 +38,5 @@ public class VerticalElevator : MonoBehaviour
         if ( Time.time > waitUntilTime )
             transform.Translate( moveDirection * Time.deltaTime * moveSpeed, Space.World );
     }
-    
-    // void Update ()
-    // {
-    //     move();
-    // }
-    // void move () 
-    // { 
-    //     if (transform.position.y >= top) 
-    //     {
-    //         waitUntilTime = Time.time + 10f; //3 second(s) in the future.
-    //         delay();
-    //         moveDirection = downwards; 
-    //     } 
-    //     else if (transform.position.y <= bottom ) 
-    //     {
-    //         waitUntilTime = Time.time + 10f; //3 second(s) in the future.
-    //         delay();
-    //         moveDirection = upwards;
-    //     } 
-        
-    //     transform.Translate (moveDirection * Time.deltaTime * moveSpeed, Space.World);
-    // } 
-
-    // void delay(){
-    //       if (Time.time > waitUntilTime) return;
-
-    // }
 
 }

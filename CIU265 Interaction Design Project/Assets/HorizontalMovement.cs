@@ -38,28 +38,4 @@ public class HorizontalMovement : MonoBehaviour
         if ( Time.time > waitUntilTime )
             transform.Translate( moveDirection * Time.deltaTime * moveSpeed, Space.World );
     }
-    // void move () 
-    // { 
-    //     if (transform.position.x >= right) 
-    //     {
-    //         waitUntilTime = Time.time + 10f; 
-    //         delay();
-    //         moveDirection = leftMovement; 
-    //     } 
-    //     else if (transform.position.x <= left ) 
-    //     {
-    //         waitUntilTime = Time.time + 10f;
-    //         delay();
-    //         moveDirection = rightMovement;
-    //     } 
-        
-    //     transform.Translate (moveDirection * Time.deltaTime * moveSpeed, Space.World);
-    // } 
-
-    // void delay(){
-    //     if (Time.time > waitUntilTime){
-    //         return;     
-    //     }
-
-    // }
 }
