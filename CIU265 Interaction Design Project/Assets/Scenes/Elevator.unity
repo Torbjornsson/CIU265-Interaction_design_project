@@ -435,8 +435,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  top: 5
-  bottom: 5
+  left: -5
+  right: 0
+  waitTime: 1
 --- !u!61 &1934272031
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -551,9 +552,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b64331a1f373248f28d63493ec4d43dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  top: 0
+  moveSpeed: 3
+  top: 3
   bottom: 0
+  waitTime: 1
 --- !u!4 &2105892191
 Transform:
   m_ObjectHideFlags: 0

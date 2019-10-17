@@ -5,37 +5,61 @@ using UnityEngine;
 public class HorizontalMovement : MonoBehaviour
 {
     public float moveSpeed;
-    public int top;
-    public float bottom;
-    Vector3 right = new Vector3(1.0f, 0.0f, 0.0f);
-    Vector3 left = new Vector3(-1.0f, 0.0f, 0.0f);
+    public int left;
+    public float right;
+    public float waitTime;
+    Vector3 rightMovement = new Vector3(1.0f, 0.0f, 0.0f);
+    Vector3 leftMovement = new Vector3(-1.0f, 0.0f, 0.0f);
     private Vector3 moveDirection;
     float waitUntilTime = -1f;
+
+    private void Start()
+    {
+        moveDirection = rightMovement;
+    }
     
     void Update ()
     {
-        move();
+        Move();
     }
-    void move () 
-    { 
-        if (transform.position.x >= 10) 
+
+    void Move()
+    {
+        if ( transform.position.x > right && moveDirection == rightMovement )
         {
-            waitUntilTime = Time.time + 10f; //3 second(s) in the future.
-            delay();
-            moveDirection = left; 
-        } 
-        else if (transform.position.x <= 0 ) 
+            waitUntilTime = Time.time + waitTime;
+            moveDirection = leftMovement;
+        }
+        else if ( transform.position.x < left && moveDirection == leftMovement )
         {
-            waitUntilTime = Time.time + 10f; //3 second(s) in the future.
-            delay();
-            moveDirection = right;
-        } 
+            waitUntilTime = Time.time + waitTime;
+            moveDirection = rightMovement;
+        }
+        if ( Time.time > waitUntilTime )
+            transform.Translate( moveDirection * Time.deltaTime * moveSpeed, Space.World );
+    }
+    // void move () 
+    // { 
+    //     if (transform.position.x >= right) 
+    //     {
+    //         waitUntilTime = Time.time + 10f; 
+    //         delay();
+    //         moveDirection = leftMovement; 
+    //     } 
+    //     else if (transform.position.x <= left ) 
+    //     {
+    //         waitUntilTime = Time.time + 10f;
+    //         delay();
+    //         moveDirection = rightMovement;
+    //     } 
         
-        transform.Translate (moveDirection * Time.deltaTime * moveSpeed, Space.World);
-    } 
+    //     transform.Translate (moveDirection * Time.deltaTime * moveSpeed, Space.World);
+    // } 
 
-    void delay(){
-          if (Time.time > waitUntilTime) return;
+    // void delay(){
+    //     if (Time.time > waitUntilTime){
+    //         return;     
+    //     }
 
-    }
+    // }
 }
