@@ -9,12 +9,18 @@ public class KillParticles : MonoBehaviour
     // void onStart(){
     //     changeStateScript = Controller.GetComponent<ChangeState>();
     // }
+    private Controller master;
+
+    void onStart(){
+        master = GameObject.Find("Controller").GetComponent<Controller>();
+    }
 
     void OnCollisionEnter2D(Collision2D col) 
     {
-        if(col.gameObject.tag == "Particle")
+        master = GameObject.Find("Controller").GetComponent<Controller>();
+        if(col.gameObject.tag == "Particle" && col.gameObject != null)
         {
-            Destroy(col.gameObject);
+            master.RemoveParticle(col.gameObject);
         }
     }
 }

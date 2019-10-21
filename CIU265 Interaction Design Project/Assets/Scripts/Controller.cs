@@ -13,7 +13,7 @@ public class Controller : MonoBehaviour
     public BlurController blurController;
     public int state = 0;
     public float iceSize, waterSize, gasSize;
-    public GameObject[] particles;
+    public ArrayList particles = new ArrayList();
 
     public Color ice, water, gas;
     public MeshRenderer textureWithShade;
@@ -36,7 +36,10 @@ public class Controller : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-       particles = GameObject.FindGameObjectsWithTag("Particle");
+        GameObject[] ps =GameObject.FindGameObjectsWithTag("Particle"); 
+        foreach(GameObject p in ps){
+            particles.Add(p);
+        }
        blurController = effectCamera.GetComponent<BlurController>();
        meshWithText = GameObject.Find("MeshWithTextureFromCamera");
        textureWithShade = meshWithText.GetComponent<MeshRenderer>();
@@ -49,19 +52,30 @@ public class Controller : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        string readLine = sp.ReadLine();
-        print(readLine);
+        //string readLine = sp.ReadLine();
+        //print(readLine);
         moveCamera();
     }
 
-    public void moveCamera(){
-        Vector2 minPos = particles[0].transform.position;
-        Vector2 maxPos = particles[0].transform.position;
+    public void moveCamera()
+    {
+        if (particles.Count == 0){
+            return;
+        }
+        GameObject p = (GameObject)particles[0];
+        
+        Vector2 minPos = p.transform.position;
+        Vector2 maxPos = p.transform.position;
         foreach(GameObject particle in particles){
             minPos = Vector2.Min(minPos, particle.transform.position);
             maxPos = Vector2.Max(maxPos, particle.transform.position);
         }
         Vector3 newPos = new Vector3((minPos.x + maxPos.x)/2, (minPos.y + maxPos.y)/2, -10);
         mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, newPos, Time.deltaTime);
+    }
+
+    public void RemoveParticle(GameObject particle){
+        particles.Remove(particle);
+        Destroy(particle);
     }
 }
