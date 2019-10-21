@@ -21,11 +21,13 @@ public class ChangeState : MonoBehaviour
     bool isWater = false;
     bool isGas = false;
 
+    public static String serialPort =  "/dev/cu.usbmodem1421";
+
     //Serial Port init
     //name of serial port is different between computers, check under Port in Arduino IDE
 
     //Serial port for Mac, right USB
-    SerialPort sp = new SerialPort("/dev/cu.usbmodem14201", 115200);
+    SerialPort sp = new SerialPort(serialPort, 115200);
 
     //Serial port for Windows, xx USB
     // SerialPort sp = new SerialPort("COM3", 115200);
@@ -50,7 +52,7 @@ public class ChangeState : MonoBehaviour
         
         try{
             string readLine = sp.ReadLine();
-            //print(readLine);
+            print(readLine);
             
             if (float.Parse(readLine) < 0.05)
             {
