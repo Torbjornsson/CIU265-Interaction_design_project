@@ -28,11 +28,7 @@ public class ChangeState : MonoBehaviour
     //name of serial port is different between computers, check under Port in Arduino IDE
 
     //Serial port for Mac, right USB
-<<<<<<< HEAD
     SerialPort sp = new SerialPort(serialPort, 115200);
-=======
-    //SerialPort sp = new SerialPort("/dev/cu.usbmodem14201", 115200);
->>>>>>> 76df2afffc3950a7d99f710de90ebf65b588b20b
 
     //Serial port for Windows, xx USB
     // SerialPort sp = new SerialPort("COM3", 115200);
