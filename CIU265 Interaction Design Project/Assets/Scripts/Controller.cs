@@ -5,12 +5,12 @@ using UnityEngine;
 using System.IO.Ports;
 using System;
 
-public class ChangeState : MonoBehaviour
+public class Controller : MonoBehaviour
 {
     public Camera effectCamera;
     public Camera mainCamera;
     public GameObject meshWithText;
-    private BlurController blurController;
+    public BlurController blurController;
     public int state = 0;
     public float iceSize, waterSize, gasSize;
     public GameObject[] particles;
@@ -28,13 +28,13 @@ public class ChangeState : MonoBehaviour
     //name of serial port is different between computers, check under Port in Arduino IDE
 
     //Serial port for Mac, right USB
-    SerialPort sp = new SerialPort(serialPort, 115200);
+    public SerialPort sp = new SerialPort(serialPort, 115200);
 
     //Serial port for Windows, xx USB
     // SerialPort sp = new SerialPort("COM3", 115200);
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
        particles = GameObject.FindGameObjectsWithTag("Particle");
        blurController = effectCamera.GetComponent<BlurController>();
@@ -48,7 +48,7 @@ public class ChangeState : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         /* 
         try{
@@ -104,7 +104,7 @@ public class ChangeState : MonoBehaviour
         moveCamera();
     }
 
-    void changeToIce(){
+    public void changeToIce(){
         foreach(GameObject particle in particles){
             particle.GetComponent<Rigidbody2D>().gravityScale = 1;
             particle.GetComponent<CircleCollider2D>().enabled = false;
@@ -115,7 +115,7 @@ public class ChangeState : MonoBehaviour
         blurController.iterations = 3;
         textureWithShade.materials[0].SetColor("_Color", ice);
     }
-    void changeToWater(){
+    public void changeToWater(){
         foreach(GameObject particle in particles){
             particle.GetComponent<Rigidbody2D>().gravityScale = 1;
             particle.GetComponent<CircleCollider2D>().enabled = true;
@@ -127,7 +127,7 @@ public class ChangeState : MonoBehaviour
         textureWithShade.materials[0].SetColor("_Color", water);
     }
 
-    void changeToGas(){
+    public void changeToGas(){
         foreach(GameObject particle in particles){
             particle.GetComponent<Rigidbody2D>().gravityScale = -1;
             particle.GetComponent<CircleCollider2D>().enabled = true;
@@ -139,7 +139,7 @@ public class ChangeState : MonoBehaviour
         textureWithShade.materials[0].SetColor("_Color", gas);
     }
 
-    void moveCamera(){
+    public void moveCamera(){
         Vector2 minPos = particles[0].transform.position;
         Vector2 maxPos = particles[0].transform.position;
         foreach(GameObject particle in particles){
