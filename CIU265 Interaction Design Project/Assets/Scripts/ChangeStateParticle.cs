@@ -11,7 +11,7 @@ public class ChangeStateParticle : MonoBehaviour
     private float iceSize, waterSize, gasSize;
     private Color ice, water, gas;
     private BlurController blurController;
-    private SpriteRenderer textureWithShade;
+    private MeshRenderer textureWithShade;
 
     private SerialPort sp;
     private float inc = 0.0f;
@@ -28,26 +28,21 @@ public class ChangeStateParticle : MonoBehaviour
         this.gas = master.gas;
 
         this.blurController = master.blurController;
-        this.textureWithShade = gameObject.GetComponent<SpriteRenderer>();
+        this.textureWithShade = master.textureWithShade;
         this.sp = master.sp;
     }
 
     // Update is called once per frame
     public void Update()
     {
-        if (gameObject.transform.localPosition.x > 0.5f)
-            iceThreshold = 0.2f;
-        else 
-            iceThreshold = 0.05f;
         try{
             if (inc > 1.5f){
                 inc = 0.0f;
             }
             else{
-                inc += 0.02f * Time.deltaTime;
+                inc += 0.05f * Time.deltaTime;
             }
             string readLine = inc.ToString();
-            print(readLine);
             
             if (float.Parse(readLine) < iceThreshold)
             {
@@ -71,8 +66,8 @@ public class ChangeStateParticle : MonoBehaviour
         gameObject.GetComponent<CircleCollider2D>().enabled = false;
         gameObject.GetComponent<BoxCollider2D>().enabled = true;
         gameObject.transform.localScale = new Vector3(iceSize, iceSize, 1);
-        master.blurController.blurSpread = 0.1f;
-        master.blurController.iterations = 3;
+        blurController.blurSpread = 0.1f;
+        blurController.iterations = 3;
         textureWithShade.materials[0].SetColor("_Color", ice);
     }
     public void changeToWater(){
@@ -80,8 +75,8 @@ public class ChangeStateParticle : MonoBehaviour
         gameObject.GetComponent<CircleCollider2D>().enabled = true;
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         gameObject.transform.localScale = new Vector3(waterSize, waterSize, 1);
-        master.blurController.blurSpread = 0.5f;
-        master.blurController.iterations = 7;
+        blurController.blurSpread = 0.5f;
+        blurController.iterations = 7;
         textureWithShade.materials[0].SetColor("_Color", water);
     }
 
@@ -90,8 +85,16 @@ public class ChangeStateParticle : MonoBehaviour
         gameObject.GetComponent<CircleCollider2D>().enabled = true;
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         gameObject.transform.localScale = new Vector3(gasSize, gasSize, 1);
-        master.blurController.blurSpread = 0.2f;
-        master.blurController.iterations = 5;
+        blurController.blurSpread = 0.2f;
+        blurController.iterations = 5;
         textureWithShade.materials[0].SetColor("_Color", gas);
+    }
+    
+    void OnTriggerEnter2D(Collider2D other){
+        Debug.Log(gameObject.name + other.name);
+        blurController = other.GetComponentInChildren<BlurController>();
+        textureWithShade = other.GetComponentInChildren<MeshRenderer>();
+        iceThreshold = other.GetComponent<Room>().iceThreshold;
+        waterThreshold = other.GetComponent<Room>().waterThreshold;
     }
 }

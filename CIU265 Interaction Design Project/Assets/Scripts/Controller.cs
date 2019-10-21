@@ -40,7 +40,6 @@ public class Controller : MonoBehaviour
        blurController = effectCamera.GetComponent<BlurController>();
        meshWithText = GameObject.Find("MeshWithTextureFromCamera");
        textureWithShade = meshWithText.GetComponent<MeshRenderer>();
-       changeToIce();
 
         //Start reading from serial monitor
         //sp.Open();
@@ -50,93 +49,9 @@ public class Controller : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        /* 
-        try{
-            string readLine = sp.ReadLine();
-            print(readLine);
-            
-            if (float.Parse(readLine) < 0.05)
-            {
-                changeToIce();
-            }
-            else if (float.Parse(readLine) > 0.05 && float.Parse(readLine) < 1.0)
-            {
-                changeToWater();
-            }
-            else if (float.Parse(readLine) >= 1.0){
-                changeToGas();
-            }
-        }
-        catch(System.Exception){
-        }
- */
-        //Control particles with space:
-
-        // if(Input.GetKeyDown("space")) 
-        // {
-        //     state++;
-        //     if (state > 2){
-        //         state = 0;
-        //     }
-        //     if (state == 0){
-        //         changeToIce();
-        //     }
-        //     else if (state == 1){
-        //         changeToWater();
-        //     }
-        //     else if (state == 2){
-        //         changeToGas();
-        //     }
-        // }
-
-        if(Input.GetKeyDown(KeyCode.LeftArrow)) 
-        {
-            changeToIce();
-        }
-        if(Input.GetKeyDown(KeyCode.DownArrow)) 
-        {
-            changeToWater();
-        }
-        if(Input.GetKeyDown(KeyCode.RightArrow)) 
-        {
-            changeToGas();
-        }
+        string readLine = sp.ReadLine();
+        print(readLine);
         moveCamera();
-    }
-
-    public void changeToIce(){
-        foreach(GameObject particle in particles){
-            particle.GetComponent<Rigidbody2D>().gravityScale = 1;
-            particle.GetComponent<CircleCollider2D>().enabled = false;
-            particle.GetComponent<BoxCollider2D>().enabled = true;
-            particle.transform.localScale = new Vector3(iceSize, iceSize, 1);
-        }
-        blurController.blurSpread = 0.1f;
-        blurController.iterations = 3;
-        textureWithShade.materials[0].SetColor("_Color", ice);
-    }
-    public void changeToWater(){
-        foreach(GameObject particle in particles){
-            particle.GetComponent<Rigidbody2D>().gravityScale = 1;
-            particle.GetComponent<CircleCollider2D>().enabled = true;
-            particle.GetComponent<BoxCollider2D>().enabled = false;
-            particle.transform.localScale = new Vector3(waterSize, waterSize, 1);
-        }
-        blurController.blurSpread = 0.5f;
-        blurController.iterations = 7;
-        textureWithShade.materials[0].SetColor("_Color", water);
-    }
-
-    public void changeToGas(){
-        foreach(GameObject particle in particles){
-            particle.GetComponent<Rigidbody2D>().gravityScale = -1;
-            particle.GetComponent<CircleCollider2D>().enabled = true;
-            particle.GetComponent<BoxCollider2D>().enabled = false;
-            particle.transform.localScale = new Vector3(gasSize, gasSize, 1);
-        }
-        blurController.blurSpread = 0.2f;
-        blurController.iterations = 5;
-        textureWithShade.materials[0].SetColor("_Color", gas);
     }
 
     public void moveCamera(){

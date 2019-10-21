@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6298022733953644953}
   - component: {fileID: 6298022733953644952}
   - component: {fileID: 2682301220756387809}
+  - component: {fileID: 8001470440667396257}
   m_Layer: 9
   m_Name: Liquid Particle
   m_TagString: Untagged
@@ -145,3 +146,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8001470440667396257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6298022733953644949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d4a9a5b271a5aa3dacd801034f975ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  master: {fileID: 0}
+  iceThreshold: 0.05
+  waterThreshold: 1
