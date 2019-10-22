@@ -42,8 +42,8 @@ public class Controller : MonoBehaviour
        textureWithShade = meshWithText.GetComponent<MeshRenderer>();
 
         //Start reading from serial monitor
-        //sp.Open();
-        //sp.ReadTimeout = 1;
+        sp.Open();
+        sp.ReadTimeout = 1;
     }
 
     // Update is called once per frame
