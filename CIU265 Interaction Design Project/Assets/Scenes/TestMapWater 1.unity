@@ -9715,7 +9715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iceThreshold: 0.1
-  waterThreshold: 1
+  waterThreshold: 3
 --- !u!4 &1860580723 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6298022733953644951, guid: bda8cf92118c1dda6bcf8ae04b023abc,
