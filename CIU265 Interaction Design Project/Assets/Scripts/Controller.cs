@@ -18,7 +18,7 @@ public class Controller : MonoBehaviour
     private int leaderboardsize = 10;
     private int maxParticles;
     public float iceSize, waterSize, gasSize;
-    public GameObject[] particles;
+    public ArrayList particles = new ArrayList();
     private Text[] scores;
 
     public Color ice, water, gas;
@@ -44,10 +44,13 @@ public class Controller : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
+        GameObject[] ps =GameObject.FindGameObjectsWithTag("Particle"); 
+        foreach(GameObject p in ps){
+            particles.Add(p);
+        }
         highscorelist = new ArrayList();
         highscore = GameObject.Find("High Score");
         highscore.SetActive(false);
-        particles = GameObject.FindGameObjectsWithTag("Particle");
         blurController = effectCamera.GetComponent<BlurController>();
         meshWithText = GameObject.Find("MeshWithTextureFromCamera");
         textureWithShade = meshWithText.GetComponent<MeshRenderer>();
@@ -90,6 +93,10 @@ public class Controller : MonoBehaviour
         mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, newPos, Time.deltaTime);
     }
 
+    public void RemoveParticle(GameObject particle){
+        particles.Remove(particle);
+        Destroy(particle);
+    }
     public void Score(int numberOfParticles){
         if (numberOfParticles >= particles.Length - 10){
             highscorelist = GetHighScoreList();
