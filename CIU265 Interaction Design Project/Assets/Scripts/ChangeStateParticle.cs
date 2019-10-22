@@ -30,33 +30,46 @@ public class ChangeStateParticle : MonoBehaviour
         this.blurController = master.blurController;
         this.textureWithShade = master.textureWithShade;
         this.sp = master.sp;
+        changeToIce();
     }
 
     // Update is called once per frame
     public void Update()
     {
-        try{
-            if (inc > 1.5f){
-                inc = 0.0f;
-            }
-            else{
-                inc += 0.05f * Time.deltaTime;
-            }
-            string readLine = inc.ToString();
+        // try{
+        //     if (inc > 1.5f){
+        //         inc = 0.0f;
+        //     }
+        //     else{
+        //         inc += 0.05f * Time.deltaTime;
+        //     }
+        //     string readLine = inc.ToString();
             
-            if (float.Parse(readLine) < iceThreshold)
-            {
-                changeToIce();
-            }
-            else if (float.Parse(readLine) > iceThreshold && float.Parse(readLine) < waterThreshold)
-            {
-                changeToWater();
-            }
-            else if (float.Parse(readLine) >= waterThreshold){
-                changeToGas();
-            }
+        //     if (float.Parse(readLine) < iceThreshold)
+        //     {
+        //         changeToIce();
+        //     }
+        //     else if (float.Parse(readLine) > iceThreshold && float.Parse(readLine) < waterThreshold)
+        //     {
+        //         changeToWater();
+        //     }
+        //     else if (float.Parse(readLine) >= waterThreshold){
+        //         changeToGas();
+        //     }
+        // }
+        // catch(System.Exception){
+        // }
+        if(Input.GetKeyDown(KeyCode.LeftArrow)) 
+        {
+            changeToIce();
         }
-        catch(System.Exception){
+        if(Input.GetKeyDown(KeyCode.DownArrow)) 
+        {
+            changeToWater();
+        }
+        if(Input.GetKeyDown(KeyCode.RightArrow)) 
+        {
+            changeToGas();
         }
     }
     
