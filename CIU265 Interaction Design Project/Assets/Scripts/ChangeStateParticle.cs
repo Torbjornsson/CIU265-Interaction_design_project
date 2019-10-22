@@ -19,50 +19,41 @@ public class ChangeStateParticle : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-        master = GameObject.Find("Controller").GetComponent<Controller>();
-        this.iceSize = master.iceSize;
-        this.waterSize = master.waterSize;
-        this.gasSize = master.gasSize;
-        this.ice = master.ice;
-        this.water = master.water;
-        this.gas = master.gas;
 
-        this.blurController = master.blurController;
-        this.textureWithShade = master.textureWithShade;
-        this.sp = master.sp;
-        changeToIce();
     }
 
     // Update is called once per frame
     public void Update()
     {
+        
         // try{
-        //     if (inc > 1.5f){
+        //     if (inc > 1.0f){
         //         inc = 0.0f;
         //     }
         //     else{
         //         inc += 0.05f * Time.deltaTime;
         //     }
-        //     string readLine = inc.ToString();
+        //     string readLine = sp.ReadLine();
+        //     print(readLine);
             
         //     if (float.Parse(readLine) < iceThreshold)
         //     {
         //         changeToIce();
+        //         sp.Write("i");
         //     }
-        //     else if (float.Parse(readLine) > iceThreshold && float.Parse(readLine) < waterThreshold)
+        //     else if (float.Parse(readLine) >= iceThreshold && float.Parse(readLine) < waterThreshold)
         //     {
         //         changeToWater();
+        //         sp.Write("w");
         //     }
         //     else if (float.Parse(readLine) >= waterThreshold){
         //         changeToGas();
+        //         sp.Write("g");
         //     }
-        // }
-        // catch(System.Exception){
         // }
         if(Input.GetKeyDown(KeyCode.LeftArrow)) 
         {
             changeToIce();
-        }
         if(Input.GetKeyDown(KeyCode.DownArrow)) 
         {
             changeToWater();
@@ -104,10 +95,27 @@ public class ChangeStateParticle : MonoBehaviour
     }
     
     void OnTriggerEnter2D(Collider2D other){
-        Debug.Log(gameObject.name + other.name);
+        if (other.name.Contains("Room")){
+
         blurController = other.GetComponentInChildren<BlurController>();
         textureWithShade = other.GetComponentInChildren<MeshRenderer>();
         iceThreshold = other.GetComponent<Room>().iceThreshold;
         waterThreshold = other.GetComponent<Room>().waterThreshold;
+        }
+    }
+
+    public void startParticle(){
+        master = GameObject.Find("Controller").GetComponent<Controller>();
+        this.iceSize = master.iceSize;
+        this.waterSize = master.waterSize;
+        this.gasSize = master.gasSize;
+        this.ice = master.ice;
+        this.water = master.water;
+        this.gas = master.gas;
+
+        this.blurController = master.blurController;
+        this.textureWithShade = master.textureWithShade;
+        this.sp = master.sp;
+        changeToIce();
     }
 }
