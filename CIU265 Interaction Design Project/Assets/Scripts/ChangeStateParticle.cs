@@ -26,7 +26,7 @@ public class ChangeStateParticle : MonoBehaviour
     public void Update()
     {
         try{
-            if (inc > 1.5f){
+            if (inc > 1.0f){
                 inc = 0.0f;
             }
             else{
@@ -85,11 +85,13 @@ public class ChangeStateParticle : MonoBehaviour
     }
     
     void OnTriggerEnter2D(Collider2D other){
-        // Debug.Log(gameObject.name + other.name);
+        if (other.name.Contains("Room")){
+
         blurController = other.GetComponentInChildren<BlurController>();
         textureWithShade = other.GetComponentInChildren<MeshRenderer>();
         iceThreshold = other.GetComponent<Room>().iceThreshold;
         waterThreshold = other.GetComponent<Room>().waterThreshold;
+        }
     }
 
     public void startParticle(){
