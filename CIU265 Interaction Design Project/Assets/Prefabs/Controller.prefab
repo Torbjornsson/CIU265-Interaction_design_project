@@ -40,13 +40,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 8016727069822602282}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9332dc4e2c371e94f9dd173388316f7a, type: 3}
+  m_Script: {fileID: 11500000, guid: f17d4b29871b74948a72ed2bc3bdbb47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectCamera: {fileID: 6435584169594755294, guid: bf513246ed95a7d9eafc6fa978966eb3,
-    type: 3}
+  effectCamera: {fileID: 0}
+  mainCamera: {fileID: 0}
+  meshWithText: {fileID: 0}
+  blurController: {fileID: 0}
   state: 0
-  iceSize: 0.3
-  waterSize: 0.2
-  gasSize: 0.1
-  particles: []
+  iceSize: 0
+  waterSize: 0
+  gasSize: 0
+  ice: {r: 0, g: 0, b: 0, a: 0}
+  water: {r: 0, g: 0, b: 0, a: 0}
+  gas: {r: 0, g: 0, b: 0, a: 0}
+  textureWithShade: {fileID: 0}

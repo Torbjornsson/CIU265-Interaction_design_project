@@ -25,32 +25,42 @@ public class ChangeStateParticle : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        try{
-            if (inc > 1.0f){
-                inc = 0.0f;
-            }
-            else{
-                inc += 0.05f * Time.deltaTime;
-            }
-            string readLine = sp.ReadLine();
-            print(readLine);
+        
+        // try{
+        //     if (inc > 1.0f){
+        //         inc = 0.0f;
+        //     }
+        //     else{
+        //         inc += 0.05f * Time.deltaTime;
+        //     }
+        //     string readLine = sp.ReadLine();
+        //     print(readLine);
             
-            if (float.Parse(readLine) < iceThreshold)
-            {
-                changeToIce();
-                sp.Write("i");
-            }
-            else if (float.Parse(readLine) >= iceThreshold && float.Parse(readLine) < waterThreshold)
-            {
-                changeToWater();
-                sp.Write("w");
-            }
-            else if (float.Parse(readLine) >= waterThreshold){
-                changeToGas();
-                sp.Write("g");
-            }
+        //     if (float.Parse(readLine) < iceThreshold)
+        //     {
+        //         changeToIce();
+        //         sp.Write("i");
+        //     }
+        //     else if (float.Parse(readLine) >= iceThreshold && float.Parse(readLine) < waterThreshold)
+        //     {
+        //         changeToWater();
+        //         sp.Write("w");
+        //     }
+        //     else if (float.Parse(readLine) >= waterThreshold){
+        //         changeToGas();
+        //         sp.Write("g");
+        //     }
+        // }
+        if(Input.GetKeyDown(KeyCode.LeftArrow)) 
+        {
+            changeToIce();
+        if(Input.GetKeyDown(KeyCode.DownArrow)) 
+        {
+            changeToWater();
         }
-        catch(System.Exception){
+        if(Input.GetKeyDown(KeyCode.RightArrow)) 
+        {
+            changeToGas();
         }
     }
     
@@ -106,5 +116,6 @@ public class ChangeStateParticle : MonoBehaviour
         this.blurController = master.blurController;
         this.textureWithShade = master.textureWithShade;
         this.sp = master.sp;
+        changeToIce();
     }
 }
