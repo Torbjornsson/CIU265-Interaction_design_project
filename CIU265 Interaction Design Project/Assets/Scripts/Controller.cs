@@ -57,8 +57,8 @@ public class Controller : MonoBehaviour
         }
         maxParticles = particles.Length;
         //Start reading from serial monitor
-        //sp.Open();
-        //sp.ReadTimeout = 1;
+        sp.Open();
+        sp.ReadTimeout = 1;
     }
 
     // Update is called once per frame

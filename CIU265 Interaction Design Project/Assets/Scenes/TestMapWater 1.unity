@@ -284,6 +284,16 @@ PrefabInstance:
       propertyPath: m_TranslationOffset.z
       value: 0.012148857
       objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: iceThreshold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: waterThreshold
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bda8cf92118c1dda6bcf8ae04b023abc, type: 3}
 --- !u!1001 &16908767
@@ -606,6 +616,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AffectTranslationX
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: iceThreshold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: waterThreshold
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bda8cf92118c1dda6bcf8ae04b023abc, type: 3}
@@ -1426,6 +1446,16 @@ PrefabInstance:
       propertyPath: m_TranslationOffset.z
       value: 0.012148857
       objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: iceThreshold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: waterThreshold
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bda8cf92118c1dda6bcf8ae04b023abc, type: 3}
 --- !u!1001 &241179282
@@ -1753,6 +1783,16 @@ PrefabInstance:
       propertyPath: m_TranslationOffset.z
       value: 0.012148857
       objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: iceThreshold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: waterThreshold
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bda8cf92118c1dda6bcf8ae04b023abc, type: 3}
 --- !u!1001 &269110402
@@ -2010,6 +2050,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AffectTranslationX
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: iceThreshold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: waterThreshold
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bda8cf92118c1dda6bcf8ae04b023abc, type: 3}
@@ -2484,6 +2534,16 @@ PrefabInstance:
       propertyPath: m_TranslationOffset.z
       value: 0.012148857
       objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: iceThreshold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: waterThreshold
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bda8cf92118c1dda6bcf8ae04b023abc, type: 3}
 --- !u!1 &418315425 stripped
@@ -2689,6 +2749,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TranslationOffset.z
       value: 0.012148857
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: iceThreshold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: waterThreshold
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bda8cf92118c1dda6bcf8ae04b023abc, type: 3}
@@ -2939,6 +3009,16 @@ PrefabInstance:
       propertyPath: m_AffectTranslationX
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: iceThreshold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: waterThreshold
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bda8cf92118c1dda6bcf8ae04b023abc, type: 3}
 --- !u!1001 &498978186
@@ -3112,6 +3192,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TranslationOffset.z
       value: 0.012148857
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: iceThreshold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: waterThreshold
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bda8cf92118c1dda6bcf8ae04b023abc, type: 3}
@@ -3336,6 +3426,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TranslationOffset.z
       value: 0.012148857
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: iceThreshold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: waterThreshold
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bda8cf92118c1dda6bcf8ae04b023abc, type: 3}
@@ -3674,6 +3774,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AffectTranslationX
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: iceThreshold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: waterThreshold
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bda8cf92118c1dda6bcf8ae04b023abc, type: 3}
@@ -4127,6 +4237,16 @@ PrefabInstance:
       propertyPath: m_AffectTranslationX
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: iceThreshold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: waterThreshold
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bda8cf92118c1dda6bcf8ae04b023abc, type: 3}
 --- !u!1 &754266132 stripped
@@ -4338,6 +4458,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TranslationOffset.z
       value: 0.012148857
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: iceThreshold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: waterThreshold
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bda8cf92118c1dda6bcf8ae04b023abc, type: 3}
@@ -4603,6 +4733,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AffectTranslationX
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: iceThreshold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: waterThreshold
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bda8cf92118c1dda6bcf8ae04b023abc, type: 3}
@@ -5001,6 +5141,16 @@ PrefabInstance:
       propertyPath: m_AffectTranslationX
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: iceThreshold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: waterThreshold
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bda8cf92118c1dda6bcf8ae04b023abc, type: 3}
 --- !u!1001 &922783302
@@ -5180,6 +5330,16 @@ PrefabInstance:
       propertyPath: m_AffectTranslationX
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: iceThreshold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: waterThreshold
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bda8cf92118c1dda6bcf8ae04b023abc, type: 3}
 --- !u!1001 &925147206
@@ -5358,6 +5518,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AffectTranslationX
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: iceThreshold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: waterThreshold
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bda8cf92118c1dda6bcf8ae04b023abc, type: 3}
@@ -6233,6 +6403,16 @@ PrefabInstance:
       propertyPath: m_TranslationOffset.z
       value: 0.012148857
       objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: iceThreshold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: waterThreshold
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bda8cf92118c1dda6bcf8ae04b023abc, type: 3}
 --- !u!1001 &1181119788
@@ -6686,6 +6866,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TranslationOffset.z
       value: 0.012148857
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: iceThreshold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: waterThreshold
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bda8cf92118c1dda6bcf8ae04b023abc, type: 3}
@@ -7219,6 +7409,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: iceThreshold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: waterThreshold
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2115d94222787756788f509e157a74e1, type: 3}
@@ -7821,6 +8021,16 @@ PrefabInstance:
       propertyPath: m_TranslationOffset.z
       value: 0.012148857
       objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: iceThreshold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: waterThreshold
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bda8cf92118c1dda6bcf8ae04b023abc, type: 3}
 --- !u!1001 &1490310214
@@ -8068,6 +8278,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TranslationOffset.z
       value: 0.012148857
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: iceThreshold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: waterThreshold
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bda8cf92118c1dda6bcf8ae04b023abc, type: 3}
@@ -8323,6 +8543,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TranslationOffset.z
       value: 0.012148857
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: iceThreshold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: waterThreshold
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bda8cf92118c1dda6bcf8ae04b023abc, type: 3}
@@ -8628,6 +8858,16 @@ PrefabInstance:
       propertyPath: m_AffectTranslationX
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: iceThreshold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: waterThreshold
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bda8cf92118c1dda6bcf8ae04b023abc, type: 3}
 --- !u!1001 &1635903972
@@ -8801,6 +9041,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TranslationOffset.z
       value: 0.012148857
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: iceThreshold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: waterThreshold
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bda8cf92118c1dda6bcf8ae04b023abc, type: 3}
@@ -9083,6 +9333,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AffectTranslationX
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: iceThreshold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: waterThreshold
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bda8cf92118c1dda6bcf8ae04b023abc, type: 3}
@@ -9418,6 +9678,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AffectTranslationX
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: iceThreshold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: waterThreshold
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bda8cf92118c1dda6bcf8ae04b023abc, type: 3}
@@ -10155,6 +10425,16 @@ PrefabInstance:
       propertyPath: m_AffectTranslationX
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: iceThreshold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: waterThreshold
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bda8cf92118c1dda6bcf8ae04b023abc, type: 3}
 --- !u!4 &2019244398 stripped
@@ -10339,6 +10619,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AffectTranslationX
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: iceThreshold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: waterThreshold
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bda8cf92118c1dda6bcf8ae04b023abc, type: 3}
@@ -10530,6 +10820,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AffectTranslationX
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: iceThreshold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001470440667396257, guid: bda8cf92118c1dda6bcf8ae04b023abc,
+        type: 3}
+      propertyPath: waterThreshold
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bda8cf92118c1dda6bcf8ae04b023abc, type: 3}
