@@ -36,11 +36,14 @@ public class Controller : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-       particles = GameObject.FindGameObjectsWithTag("Particle");
-       blurController = effectCamera.GetComponent<BlurController>();
-       meshWithText = GameObject.Find("MeshWithTextureFromCamera");
-       textureWithShade = meshWithText.GetComponent<MeshRenderer>();
+        particles = GameObject.FindGameObjectsWithTag("Particle");
+        blurController = effectCamera.GetComponent<BlurController>();
+        meshWithText = GameObject.Find("MeshWithTextureFromCamera");
+        textureWithShade = meshWithText.GetComponent<MeshRenderer>();
 
+        foreach (var particle in particles){
+            particle.GetComponent<ChangeStateParticle>().startParticle();
+        }
         //Start reading from serial monitor
         //sp.Open();
         //sp.ReadTimeout = 1;
