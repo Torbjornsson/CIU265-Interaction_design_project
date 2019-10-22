@@ -38,13 +38,16 @@ public class ChangeStateParticle : MonoBehaviour
             if (float.Parse(readLine) < iceThreshold)
             {
                 changeToIce();
+                sp.Write("i");
             }
             else if (float.Parse(readLine) >= iceThreshold && float.Parse(readLine) < waterThreshold)
             {
                 changeToWater();
+                sp.Write("w");
             }
             else if (float.Parse(readLine) >= waterThreshold){
                 changeToGas();
+                sp.Write("g");
             }
         }
         catch(System.Exception){

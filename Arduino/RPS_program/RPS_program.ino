@@ -23,10 +23,10 @@ int buttonState = 0;
 
 unsigned long start_time;
 int hall_count;
-int temp = 1;
+int temp = 0;
 bool on_state = true;
 bool pressed = false;
-char receivedChar;
+char receivedChar = "i";
 
 void setup() {
   // initialize serial communication at 9600 bits per second:
@@ -41,7 +41,7 @@ void setup() {
   FastLED.addLeds<LED_TYPE, LED_PIN, COLOR_ORDER>(leds, NUM_LEDS).setCorrection( TypicalLEDStrip );
   FastLED.setBrightness(  BRIGHTNESS );
   
-  ChangePalettePeriodically(0);
+  SetupIcePalette();
   currentBlending = LINEARBLEND;
 }
 
@@ -79,6 +79,12 @@ void loop() {
     }else{
         pressed = false;
     }
+
+    if (Serial.available() > 0) {
+      receivedChar = Serial.read();
+      Serial.println(receivedChar);
+      ChangePalettePeriodically(receivedChar);
+    }
     
     if (digitalRead(hall_pin)==0){
       if (!on_state){
@@ -94,7 +100,6 @@ void loop() {
     Serial.println(String(hall_count));
     temp = hall_count;
   }
-  ChangePalettePeriodically(hall_count);
   
 }
 
@@ -108,30 +113,26 @@ void FillLEDsFromPaletteColors( uint8_t colorIndex)
     }
 }
 
-void ChangePalettePeriodically(int count)
+void ChangePalettePeriodically(char receivedChar)
 {
-  if (Serial.available() > 0) {
-    receivedChar = Serial.read();
-    Serial.println(receivedChar);
-  }
   
-  if(count == 0){
+  if(receivedChar == 'i'){
     SetupIcePalette();
     currentBlending = LINEARBLEND;
   }
-  if(count == 1){
-    SetupIceToWaterPalette();
-    currentBlending = LINEARBLEND;
-  }
-  if(count == 2){
+//  if(receivedChar == "){
+//    SetupIceToWaterPalette();
+//    currentBlending = LINEARBLEND;
+//  }
+  if(receivedChar == 'w'){
     SetupWaterPalette();
     currentBlending = LINEARBLEND;
   }
-  if(count == 3){
-    SetupWaterToGasPalette();
-    currentBlending = LINEARBLEND;
-  }
-  if(count > 4){
+//  if(count == 3){
+//    SetupWaterToGasPalette();
+//    currentBlending = LINEARBLEND;
+//  }
+  if(receivedChar == 'g'){
     SetupGasPalette();
     currentBlending = LINEARBLEND;
   }
