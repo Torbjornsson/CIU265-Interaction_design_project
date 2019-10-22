@@ -44,10 +44,7 @@ public class Controller : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-        GameObject[] ps =GameObject.FindGameObjectsWithTag("Particle"); 
-        foreach(GameObject p in ps){
-            particles.Add(p);
-        }
+        
         highscorelist = new ArrayList();
         highscore = GameObject.Find("High Score");
         highscore.SetActive(false);
@@ -55,10 +52,15 @@ public class Controller : MonoBehaviour
         meshWithText = GameObject.Find("MeshWithTextureFromCamera");
         textureWithShade = meshWithText.GetComponent<MeshRenderer>();
 
-        foreach (var particle in particles){
-            particle.GetComponent<ChangeStateParticle>().startParticle();
-        }
-        maxParticles = particles.Length;
+        GameObject[] ps = GameObject.FindGameObjectsWithTag("Particle"); 
+        foreach(GameObject p in ps){
+            if (p != null){
+                particles.Add(p);
+        
+                p.GetComponent<ChangeStateParticle>().startParticle();
+            }
+       }
+        maxParticles = particles.Count;
         //Start reading from serial monitor
         sp.Open();
         sp.ReadTimeout = 1;
@@ -98,7 +100,7 @@ public class Controller : MonoBehaviour
         Destroy(particle);
     }
     public void Score(int numberOfParticles){
-        if (numberOfParticles >= particles.Length - 10){
+        if (numberOfParticles >= particles.Count - 10){
             highscorelist = GetHighScoreList();
             highscore.SetActive(true);
             GameObject yourScore = GameObject.Find("Your Score");

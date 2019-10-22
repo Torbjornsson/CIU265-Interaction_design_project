@@ -54,6 +54,7 @@ public class ChangeStateParticle : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.LeftArrow)) 
         {
             changeToIce();
+        }
         if(Input.GetKeyDown(KeyCode.DownArrow)) 
         {
             changeToWater();
