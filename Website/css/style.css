@@ -1,0 +1,31 @@
+body{
+    padding-top: 60px;
+    font-family: 
+}
+
+h1{
+    font-family: 'Open Sans', serif;
+    font-size: 36px;
+}
+
+.subtitle{
+    font-family: 'Open Sans', serif;
+    font-size: 16px;
+}
+
+.container{
+    text-align: center;
+}
+
+section { 
+    height:100vh;
+}
+
+.masthead {
+    
+  height: 90vh;
+  background-image: url('/images/1x/logo.png');
+  background-size:contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
