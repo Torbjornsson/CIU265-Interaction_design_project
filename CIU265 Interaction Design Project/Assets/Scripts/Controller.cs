@@ -47,6 +47,8 @@ public class Controller : MonoBehaviour
         GameObject[] ps =GameObject.FindGameObjectsWithTag("Particle"); 
         foreach(GameObject p in ps){
             particles.Add(p);
+        
+            p.GetComponent<ChangeStateParticle>().startParticle();
         }
         highscorelist = new ArrayList();
         highscore = GameObject.Find("High Score");
@@ -56,9 +58,8 @@ public class Controller : MonoBehaviour
         textureWithShade = meshWithText.GetComponent<MeshRenderer>();
 
         foreach (var particle in particles){
-            particle.GetComponent<ChangeStateParticle>().startParticle();
         }
-        maxParticles = particles.Length;
+        maxParticles = particles.Count;
         //Start reading from serial monitor
         sp.Open();
         sp.ReadTimeout = 1;
@@ -98,7 +99,7 @@ public class Controller : MonoBehaviour
         Destroy(particle);
     }
     public void Score(int numberOfParticles){
-        if (numberOfParticles >= particles.Length - 10){
+        if (numberOfParticles >= particles.Count - 10){
             highscorelist = GetHighScoreList();
             highscore.SetActive(true);
             GameObject yourScore = GameObject.Find("Your Score");
