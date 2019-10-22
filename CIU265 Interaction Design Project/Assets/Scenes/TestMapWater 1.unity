@@ -10993,12 +10993,12 @@ PrefabInstance:
     - target: {fileID: 8016727069822602293, guid: 4ed20c0c1053e833580b1bc04209811d,
         type: 3}
       propertyPath: waterSize
-      value: 0.5
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8016727069822602293, guid: 4ed20c0c1053e833580b1bc04209811d,
         type: 3}
       propertyPath: gasSize
-      value: 0.5
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8016727069822602293, guid: 4ed20c0c1053e833580b1bc04209811d,
         type: 3}

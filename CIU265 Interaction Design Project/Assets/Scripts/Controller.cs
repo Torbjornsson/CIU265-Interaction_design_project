@@ -49,8 +49,8 @@ public class Controller : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        string readLine = sp.ReadLine();
-        print(readLine);
+        //string readLine = sp.ReadLine();
+        //print(readLine);
         moveCamera();
     }
 
