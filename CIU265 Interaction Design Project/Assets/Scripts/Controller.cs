@@ -74,13 +74,19 @@ public class Controller : MonoBehaviour
     }
 
     public void moveCamera(){
-        Vector2 minPos = particles[0].transform.position;
-        Vector2 maxPos = particles[0].transform.position;
+        ArrayList positionsX = new ArrayList();
+        ArrayList positionsY = new ArrayList();
         foreach(GameObject particle in particles){
-            minPos = Vector2.Min(minPos, particle.transform.position);
-            maxPos = Vector2.Max(maxPos, particle.transform.position);
+            positionsX.Add(particle.transform.position.x);
+            positionsY.Add(particle.transform.position.y);
         }
-        Vector3 newPos = new Vector3((minPos.x + maxPos.x)/2, (minPos.y + maxPos.y)/2, -10);
+        positionsX.Sort();
+        positionsY.Sort();
+        
+        float medianX = (float)positionsX[positionsX.Count/2]; 
+        float medianY = (float)positionsY[positionsY.Count/2];
+
+        Vector3 newPos = new Vector3(medianX, medianY, -10);
         mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, newPos, Time.deltaTime);
     }
 
