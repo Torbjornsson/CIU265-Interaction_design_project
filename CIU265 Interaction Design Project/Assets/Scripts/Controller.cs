@@ -19,11 +19,12 @@ public class Controller : MonoBehaviour
     private int maxParticles;
     public float iceSize, waterSize, gasSize;
     public GameObject[] particles;
+    private Text[] scores;
 
     public Color ice, water, gas;
     public MeshRenderer textureWithShade;
 
-    private ArrayList highscorelist = new ArrayList();
+    private ArrayList highscorelist;
     
     bool isIce = false;
     bool isWater = false;
@@ -43,6 +44,7 @@ public class Controller : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
+        highscorelist = new ArrayList();
         highscore = GameObject.Find("High Score");
         highscore.SetActive(false);
         particles = GameObject.FindGameObjectsWithTag("Particle");
@@ -65,6 +67,10 @@ public class Controller : MonoBehaviour
         //string readLine = sp.ReadLine();
         //print(readLine);
         moveCamera();
+
+        if (Input.GetKeyDown("9")){
+            ClearHighScoreList();
+        }
     }
 
     public void moveCamera(){
@@ -79,7 +85,8 @@ public class Controller : MonoBehaviour
     }
 
     public void Score(int numberOfParticles){
-        if (numberOfParticles >= particles.Length - 4){
+        if (numberOfParticles >= particles.Length - 10){
+            highscorelist = GetHighScoreList();
             highscore.SetActive(true);
             GameObject yourScore = GameObject.Find("Your Score");
             Text textScore = yourScore.GetComponent<Text>();
@@ -87,6 +94,7 @@ public class Controller : MonoBehaviour
             textScore.text = score.ToString();
             SaveHighScore(score);
             UpdateHighscoreList();
+            Time.timeScale = 0;
         }
     }
 
@@ -100,20 +108,17 @@ public class Controller : MonoBehaviour
     }
 
     private void SaveHighScore(int score){
-        highscorelist = GetHighScoreList();
         int i = 0;
-        
         while (i < leaderboardsize && i < highscorelist.Count){
-            if ((int)highscorelist[i] <= score){
+            if ((int)highscorelist[i] < score){
                 highscorelist.Insert(i, score);
                 PlayerPrefs.SetInt("Score"+i, score);
             }
             i++;
         }
-        while (i < leaderboardsize && i >= highscorelist.Count){
+        if (i < leaderboardsize && i >= highscorelist.Count){
             highscorelist.Add(score);
             PlayerPrefs.SetInt("Score"+i, score);
-            i++;
         }
     }
 
@@ -123,25 +128,26 @@ public class Controller : MonoBehaviour
 
         while (i < leaderboardsize && PlayerPrefs.HasKey("Score"+i)){
             list.Add(PlayerPrefs.GetInt("Score"+i));
+            i++;
         }
 
         return list;
     }
 
     private void UpdateHighscoreList(){
-        highscorelist = GetHighScoreList();
         for (int i = 0; i < leaderboardsize && i < highscorelist.Count; i++){
-            GameObject.Find("Score"+i).GetComponent<Text>().text = highscorelist[i].ToString();
+            Text text = GameObject.Find("Score"+i).GetComponent<Text>();
+            int test = (int)highscorelist[i];
+            text.text = test.ToString();
         }
-
     }
 
     private void ClearHighScoreList(){
         highscorelist = GetHighScoreList();
-
         for(int i = 0; i < highscorelist.Count; i++){
             PlayerPrefs.DeleteKey("Score"+i);
         }
+        highscorelist.Clear();
     }
 
     void OnApplicationQuit(){
