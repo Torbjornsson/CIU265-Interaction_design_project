@@ -19,17 +19,7 @@ public class ChangeStateParticle : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-        master = GameObject.Find("Controller").GetComponent<Controller>();
-        this.iceSize = master.iceSize;
-        this.waterSize = master.waterSize;
-        this.gasSize = master.gasSize;
-        this.ice = master.ice;
-        this.water = master.water;
-        this.gas = master.gas;
 
-        this.blurController = master.blurController;
-        this.textureWithShade = master.textureWithShade;
-        this.sp = master.sp;
     }
 
     // Update is called once per frame
@@ -97,5 +87,19 @@ public class ChangeStateParticle : MonoBehaviour
         textureWithShade = other.GetComponentInChildren<MeshRenderer>();
         iceThreshold = other.GetComponent<Room>().iceThreshold;
         waterThreshold = other.GetComponent<Room>().waterThreshold;
+    }
+
+    public void startParticle(){
+        master = GameObject.Find("Controller").GetComponent<Controller>();
+        this.iceSize = master.iceSize;
+        this.waterSize = master.waterSize;
+        this.gasSize = master.gasSize;
+        this.ice = master.ice;
+        this.water = master.water;
+        this.gas = master.gas;
+
+        this.blurController = master.blurController;
+        this.textureWithShade = master.textureWithShade;
+        this.sp = master.sp;
     }
 }
