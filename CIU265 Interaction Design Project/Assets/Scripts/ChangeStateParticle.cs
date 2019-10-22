@@ -32,13 +32,14 @@ public class ChangeStateParticle : MonoBehaviour
             else{
                 inc += 0.05f * Time.deltaTime;
             }
-            string readLine = inc.ToString();
+            string readLine = sp.ReadLine();
+            print(readLine);
             
             if (float.Parse(readLine) < iceThreshold)
             {
                 changeToIce();
             }
-            else if (float.Parse(readLine) > iceThreshold && float.Parse(readLine) < waterThreshold)
+            else if (float.Parse(readLine) >= iceThreshold && float.Parse(readLine) < waterThreshold)
             {
                 changeToWater();
             }
@@ -81,6 +82,7 @@ public class ChangeStateParticle : MonoBehaviour
     }
     
     void OnTriggerEnter2D(Collider2D other){
+        // Debug.Log(gameObject.name + other.name);
         blurController = other.GetComponentInChildren<BlurController>();
         textureWithShade = other.GetComponentInChildren<MeshRenderer>();
         iceThreshold = other.GetComponent<Room>().iceThreshold;

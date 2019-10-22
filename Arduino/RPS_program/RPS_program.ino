@@ -38,5 +38,5 @@ void loop() {
     }
   }
   
-  Serial.println(String(hall_count/2));
+  Serial.println(String(hall_count));
 }
