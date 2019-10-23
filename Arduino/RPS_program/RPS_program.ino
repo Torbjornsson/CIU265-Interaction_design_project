@@ -1,7 +1,7 @@
 #include <FastLED.h>
 
 #define LED_PIN     5
-#define NUM_LEDS    11
+#define NUM_LEDS    50
 #define BRIGHTNESS  64
 #define LED_TYPE    WS2811
 #define COLOR_ORDER GRB
@@ -33,7 +33,7 @@ void setup() {
   Serial.begin(115200);
   Serial.println("Starting...");
   // make the hall pin an input:
-  Serial.println(String(0));
+  Serial.println("0");
   pinMode(hall_pin, INPUT);
   pinMode(buttonPin, INPUT_PULLUP);
 
@@ -86,7 +86,7 @@ void loop() {
       ChangePalettePeriodically(receivedChar);
     }
     
-    if (digitalRead(hall_pin)==0){
+    if (digitalRead(hall_pin) == 0){
       if (!on_state){
         on_state = true;
         hall_count+=1;
