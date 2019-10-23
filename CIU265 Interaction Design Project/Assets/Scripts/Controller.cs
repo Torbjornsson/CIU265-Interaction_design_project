@@ -98,7 +98,21 @@ public class Controller : MonoBehaviour
     public void RemoveParticle(GameObject particle){
         particles.Remove(particle);
         Destroy(particle);
+        if (particles.Count == 0){
+            EndLevel();
+        }
     }
+
+    private void EndLevel(){
+        highscorelist = GetHighScoreList();
+        highscore.SetActive(true);
+        GameObject yourScore = GameObject.Find("Your Score");
+        Text textScore = yourScore.GetComponent<Text>();
+        textScore.text = "0";
+        UpdateHighscoreList();
+        Time.timeScale = 0;
+    }
+
     public void Score(int numberOfParticles){
         if (numberOfParticles >= particles.Count - 10){
             highscorelist = GetHighScoreList();
@@ -119,7 +133,7 @@ public class Controller : MonoBehaviour
 
         score -= numberOfParticles - maxParticles;
         score -= (int)Mathf.Round(time);
-        return score * scoreScale;
+        return Mathf.Max(0, score * scoreScale);
     }
 
     private void SaveHighScore(int score){
