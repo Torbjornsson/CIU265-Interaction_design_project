@@ -12,6 +12,7 @@ public class ChangeStateParticle : MonoBehaviour
     private Color ice, water, gas;
     private BlurController blurController;
     private MeshRenderer textureWithShade;
+    private int state = 0;
 
     private SerialPort sp;
     private float inc = 0.0f;
@@ -25,32 +26,43 @@ public class ChangeStateParticle : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        try{
-            if (inc > 1.5f){
-                inc = 0.0f;
-            }
-            else{
-                inc += 0.05f * Time.deltaTime;
-            }
-            string readLine = sp.ReadLine();
-            print(readLine);
+        
+        // try{
+        //     if (inc > 1.0f){
+        //         inc = 0.0f;
+        //     }
+        //     else{
+        //         inc += 0.05f * Time.deltaTime;
+        //     }
+        //     string readLine = sp.ReadLine();
+        //     print(readLine);
             
-            if (float.Parse(readLine) < iceThreshold)
-            {
-                changeToIce();
-                sp.Write("i");
-            }
-            else if (float.Parse(readLine) >= iceThreshold && float.Parse(readLine) < waterThreshold)
-            {
-                changeToWater();
-                sp.Write("w");
-            }
-            else if (float.Parse(readLine) >= waterThreshold){
-                changeToGas();
-                sp.Write("g");
-            }
+        //     if (float.Parse(readLine) < iceThreshold)
+        //     {
+        //         changeToIce();
+        //         sp.Write("i");
+        //     }
+        //     else if (float.Parse(readLine) >= iceThreshold && float.Parse(readLine) < waterThreshold)
+        //     {
+        //         changeToWater();
+        //         sp.Write("w");
+        //     }
+        //     else if (float.Parse(readLine) >= waterThreshold){
+        //         changeToGas();
+        //         sp.Write("g");
+        //     }
+        // }
+        if(Input.GetKeyDown(KeyCode.LeftArrow)) 
+        {
+            changeToIce();
         }
-        catch(System.Exception){
+        if(Input.GetKeyDown(KeyCode.DownArrow)) 
+        {
+            changeToWater();
+        }
+        if(Input.GetKeyDown(KeyCode.RightArrow)) 
+        {
+            changeToGas();
         }
     }
     
@@ -63,6 +75,7 @@ public class ChangeStateParticle : MonoBehaviour
         blurController.blurSpread = 0.1f;
         blurController.iterations = 3;
         textureWithShade.materials[0].SetColor("_Color", ice);
+        state = 0;
     }
     public void changeToWater(){
         gameObject.GetComponent<Rigidbody2D>().gravityScale = 1;
@@ -72,6 +85,7 @@ public class ChangeStateParticle : MonoBehaviour
         blurController.blurSpread = 0.5f;
         blurController.iterations = 7;
         textureWithShade.materials[0].SetColor("_Color", water);
+        state = 1;
     }
 
     public void changeToGas(){
@@ -82,14 +96,26 @@ public class ChangeStateParticle : MonoBehaviour
         blurController.blurSpread = 0.2f;
         blurController.iterations = 5;
         textureWithShade.materials[0].SetColor("_Color", gas);
+        state = 2;
     }
     
     void OnTriggerEnter2D(Collider2D other){
-        // Debug.Log(gameObject.name + other.name);
-        blurController = other.GetComponentInChildren<BlurController>();
-        textureWithShade = other.GetComponentInChildren<MeshRenderer>();
-        iceThreshold = other.GetComponent<Room>().iceThreshold;
-        waterThreshold = other.GetComponent<Room>().waterThreshold;
+        if (other.name.Contains("Room")){
+            blurController = other.GetComponentInChildren<BlurController>();
+            textureWithShade = other.GetComponentInChildren<MeshRenderer>();
+            iceThreshold = other.GetComponent<Room>().iceThreshold;
+            waterThreshold = other.GetComponent<Room>().waterThreshold;
+
+            if (state == 0){
+                changeToIce();
+            }
+            else if (state == 1){
+                changeToWater();
+            }
+            else if (state == 2){
+                changeToGas();
+            }
+        }
     }
 
     public void startParticle(){
@@ -104,5 +130,6 @@ public class ChangeStateParticle : MonoBehaviour
         this.blurController = master.blurController;
         this.textureWithShade = master.textureWithShade;
         this.sp = master.sp;
+        changeToIce();
     }
 }

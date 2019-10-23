@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class HorizontalMovement : MonoBehaviour
 {
+    public string startDirection;
     public float moveSpeed;
-    public int left;
+    public float left;
     public float right;
     public float waitTime;
     Vector3 rightMovement = new Vector3(1.0f, 0.0f, 0.0f);
@@ -15,7 +16,14 @@ public class HorizontalMovement : MonoBehaviour
 
     private void Start()
     {
-        moveDirection = rightMovement;
+        if(startDirection == "right"){
+            moveDirection = rightMovement;
+        }
+        else if(startDirection == "left") 
+        {
+            moveDirection = rightMovement;
+        }
+            
     }
     
     void Update ()
