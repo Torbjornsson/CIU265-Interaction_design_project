@@ -41,12 +41,16 @@ public class Controller : MonoBehaviour
     //public SerialPort sp = new SerialPort(serialPort, 115200);
 
     //Serial port for Windows, xx USB
-    public SerialPort sp = new SerialPort("COM3", 115200);
+    //public SerialPort sp = new SerialPort("COM3", 115200);
+    public SerialPort sp;
 
     // Start is called before the first frame update
     public void Start()
     {
-        
+        foreach (string s in SerialPort.GetPortNames()){
+            sp = new SerialPort(s, 115200);
+            break;
+        }
         highscorelist = new ArrayList();
         highscore = GameObject.Find("High Score");
         highscore.SetActive(false);

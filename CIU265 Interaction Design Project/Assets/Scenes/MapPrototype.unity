@@ -7561,6 +7561,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1921092335}
     m_Modifications:
+    - target: {fileID: 6435584169594755292, guid: bf513246ed95a7d9eafc6fa978966eb3,
+        type: 3}
+      propertyPath: m_Name
+      value: EffectCamera (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6435584169594755294, guid: bf513246ed95a7d9eafc6fa978966eb3,
+        type: 3}
+      propertyPath: orthographic size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6435584169594755294, guid: bf513246ed95a7d9eafc6fa978966eb3,
+        type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 8400000, guid: 3a726b8c4c6944cf6ae966ccffe72666, type: 2}
     - target: {fileID: 6435584169594755265, guid: bf513246ed95a7d9eafc6fa978966eb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7616,21 +7631,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6435584169594755292, guid: bf513246ed95a7d9eafc6fa978966eb3,
-        type: 3}
-      propertyPath: m_Name
-      value: EffectCamera (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6435584169594755294, guid: bf513246ed95a7d9eafc6fa978966eb3,
-        type: 3}
-      propertyPath: orthographic size
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6435584169594755294, guid: bf513246ed95a7d9eafc6fa978966eb3,
-        type: 3}
-      propertyPath: m_TargetTexture
-      value: 
-      objectReference: {fileID: 8400000, guid: 3a726b8c4c6944cf6ae966ccffe72666, type: 2}
     - target: {fileID: 8375510352180576768, guid: bf513246ed95a7d9eafc6fa978966eb3,
         type: 3}
       propertyPath: blurSpread
@@ -9355,8 +9355,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a73f2a07e20cb4b5d8b5a46428b1abc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iceThreshold: 0.05
-  waterThreshold: 1
+  iceThreshold: 1
+  waterThreshold: 2
 --- !u!1001 &1406868839
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9570,7 +9570,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iceThreshold: -0.5
-  waterThreshold: 0.5
+  waterThreshold: 1
 --- !u!1001 &1437616493
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11738,8 +11738,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a73f2a07e20cb4b5d8b5a46428b1abc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iceThreshold: 0.6
-  waterThreshold: 1.2
+  iceThreshold: 2
+  waterThreshold: 3
 --- !u!4 &1944655560 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6298022733953644951, guid: bda8cf92118c1dda6bcf8ae04b023abc,
@@ -12580,6 +12580,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1429094675}
     m_Modifications:
+    - target: {fileID: 6435584169594755292, guid: bf513246ed95a7d9eafc6fa978966eb3,
+        type: 3}
+      propertyPath: m_Name
+      value: EffectCamera (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6435584169594755294, guid: bf513246ed95a7d9eafc6fa978966eb3,
+        type: 3}
+      propertyPath: orthographic size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6435584169594755294, guid: bf513246ed95a7d9eafc6fa978966eb3,
+        type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 8400000, guid: ff7f3bb7432c44ed1a5a572539cd5655, type: 2}
     - target: {fileID: 6435584169594755265, guid: bf513246ed95a7d9eafc6fa978966eb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12635,21 +12650,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6435584169594755292, guid: bf513246ed95a7d9eafc6fa978966eb3,
-        type: 3}
-      propertyPath: m_Name
-      value: EffectCamera (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6435584169594755294, guid: bf513246ed95a7d9eafc6fa978966eb3,
-        type: 3}
-      propertyPath: orthographic size
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6435584169594755294, guid: bf513246ed95a7d9eafc6fa978966eb3,
-        type: 3}
-      propertyPath: m_TargetTexture
-      value: 
-      objectReference: {fileID: 8400000, guid: ff7f3bb7432c44ed1a5a572539cd5655, type: 2}
     - target: {fileID: 8375510352180576768, guid: bf513246ed95a7d9eafc6fa978966eb3,
         type: 3}
       propertyPath: blurSpread
@@ -13034,6 +13034,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1388959214}
     m_Modifications:
+    - target: {fileID: 6435584169594755292, guid: bf513246ed95a7d9eafc6fa978966eb3,
+        type: 3}
+      propertyPath: m_Name
+      value: EffectCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 6435584169594755294, guid: bf513246ed95a7d9eafc6fa978966eb3,
+        type: 3}
+      propertyPath: orthographic size
+      value: 23
+      objectReference: {fileID: 0}
     - target: {fileID: 6435584169594755265, guid: bf513246ed95a7d9eafc6fa978966eb3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13088,16 +13098,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6435584169594755292, guid: bf513246ed95a7d9eafc6fa978966eb3,
-        type: 3}
-      propertyPath: m_Name
-      value: EffectCamera
-      objectReference: {fileID: 0}
-    - target: {fileID: 6435584169594755294, guid: bf513246ed95a7d9eafc6fa978966eb3,
-        type: 3}
-      propertyPath: orthographic size
-      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 8375510352180576768, guid: bf513246ed95a7d9eafc6fa978966eb3,
         type: 3}
