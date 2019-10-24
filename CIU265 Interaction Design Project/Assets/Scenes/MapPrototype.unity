@@ -4481,7 +4481,7 @@ PrefabInstance:
     - target: {fileID: 138777745010162618, guid: 2115d94222787756788f509e157a74e1,
         type: 3}
       propertyPath: m_Name
-      value: High Score
+      value: HUD
       objectReference: {fileID: 0}
     - target: {fileID: 138777745010162622, guid: 2115d94222787756788f509e157a74e1,
         type: 3}
