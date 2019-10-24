@@ -41,23 +41,26 @@ public class Controller : MonoBehaviour
     //public SerialPort sp = new SerialPort(serialPort, 115200);
 
     //Serial port for Windows, xx USB
-    //public SerialPort sp = new SerialPort("COM3", 115200);
-    public SerialPort sp;
+    public SerialPort sp = new SerialPort("COM3", 115200);
+    //public SerialPort sp;
 
     // Start is called before the first frame update
     public void Start()
     {
-        foreach (string s in SerialPort.GetPortNames()){
-            sp = new SerialPort(s, 115200);
-            break;
-        }
+        // foreach (string s in SerialPort.GetPortNames()){
+        //     if (s.Contains("COM")){
+        //         sp = new SerialPort(s, 115200);
+        //         break;
+        //     }
+        // }
         highscorelist = new ArrayList();
         highscore = GameObject.Find("High Score");
         highscore.SetActive(false);
         blurController = effectCamera.GetComponent<BlurController>();
         meshWithText = GameObject.Find("MeshWithTextureFromCamera");
         textureWithShade = meshWithText.GetComponent<MeshRenderer>();
-
+        sp.Open();
+        sp.ReadTimeout = 1;
         GameObject[] ps = GameObject.FindGameObjectsWithTag("Particle"); 
         foreach(GameObject p in ps){
             if (p != null){
@@ -68,8 +71,7 @@ public class Controller : MonoBehaviour
        }
         maxParticles = particles.Count;
         //Start reading from serial monitor
-        sp.Open();
-        sp.ReadTimeout = 1;
+        
         rpm = 0.0f;
     }
 
@@ -79,8 +81,8 @@ public class Controller : MonoBehaviour
         try{
             readLine = sp.ReadLine();
             if (readLine == "restart"){
-                Application.LoadLevel (Application.loadedLevel);
                 Time.timeScale = 1;
+                Application.LoadLevel (Application.loadedLevel);
             }
             //print(readLine);
             if (readLine != "i" && readLine != "w" && readLine != "g" && readLine != "restart")

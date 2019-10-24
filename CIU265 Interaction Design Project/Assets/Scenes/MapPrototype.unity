@@ -6825,7 +6825,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 936077924}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.05, y: -5.68, z: -0.036444977}
+  m_LocalPosition: {x: -13.05, y: -5.68, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1860580723}
@@ -7345,7 +7345,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1053969290}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -14, y: 5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 339959675}
@@ -9356,7 +9356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iceThreshold: 1
-  waterThreshold: 2
+  waterThreshold: 3
 --- !u!1001 &1406868839
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11738,8 +11738,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a73f2a07e20cb4b5d8b5a46428b1abc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iceThreshold: 1
-  waterThreshold: 2
+  iceThreshold: 2
+  waterThreshold: 3
 --- !u!4 &1944655560 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6298022733953644951, guid: bda8cf92118c1dda6bcf8ae04b023abc,
@@ -13367,5 +13367,10 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 1053969292}
+    - target: {fileID: 8016727069822602293, guid: 4ed20c0c1053e833580b1bc04209811d,
+        type: 3}
+      propertyPath: baseScore
+      value: 1000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ed20c0c1053e833580b1bc04209811d, type: 3}
