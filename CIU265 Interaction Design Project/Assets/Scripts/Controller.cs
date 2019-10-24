@@ -95,13 +95,13 @@ public class Controller : MonoBehaviour
             Debug.Log(rpm);
             if (rpm < 0.05){
                 sp.Write("i");
-                GameObject.Find("Pointy Thing").transform.Rotate(zAxis, 45, Space.Self);
+                Pointy.transform.rotation = Quaternion.AngleAxis(60, zAxis);
             }else if (rpm < 3){
                 sp.Write("w");
-                GameObject.Find("Pointy Thing").transform.Rotate(zAxis, 0, Space.Self);
+                Pointy.transform.rotation = Quaternion.AngleAxis(0, zAxis);
             }else if (rpm >= 3){
                 sp.Write("g");
-                GameObject.Find("Pointy Thing").transform.Rotate(zAxis, -45, Space.Self);
+                Pointy.transform.rotation = Quaternion.AngleAxis(-60, zAxis);
             }
         }catch{
 
@@ -112,14 +112,6 @@ public class Controller : MonoBehaviour
         if (Input.GetKeyDown("9")){
             ClearHighScoreList();
         }
-        if (rpm < 1){
-            Pointy.transform.rotation = Quaternion.AngleAxis(45, zAxis);
-        }
-        else if (rpm < 3){
-           Pointy.transform.rotation = Quaternion.AngleAxis(0, zAxis);
-        }
-
-        rpm += 0.2f * Time.deltaTime;
     }
 
     public void moveCamera(){
