@@ -114,7 +114,7 @@ public class Controller : MonoBehaviour
     }
 
     public void Score(int numberOfParticles){
-        if (numberOfParticles >= particles.Count - 10){
+        if (numberOfParticles >= particles.Count - 2){
             highscorelist = GetHighScoreList();
             highscore.SetActive(true);
             GameObject yourScore = GameObject.Find("Your Score");
