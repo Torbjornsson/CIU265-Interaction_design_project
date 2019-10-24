@@ -78,8 +78,22 @@ public class Controller : MonoBehaviour
     {
         try{
             readLine = sp.ReadLine();
-            print(readLine);
-            float.TryParse(readLine, out rpm);
+            if (readLine == "restart"){
+                Application.LoadLevel (Application.loadedLevel);
+                Time.timeScale = 1;
+            }
+            //print(readLine);
+            if (readLine != "i" && readLine != "w" && readLine != "g" && readLine != "restart")
+                float.TryParse(readLine, out rpm);
+            
+            Debug.Log(rpm);
+            if (rpm < 0.05){
+                sp.Write("i");
+            }else if (rpm < 3){
+                sp.Write("w");
+            }else if (rpm >= 3){
+                sp.Write("g");
+            }
         }catch{
 
         }
@@ -127,7 +141,7 @@ public class Controller : MonoBehaviour
     }
 
     public void Score(int numberOfParticles){
-        if (numberOfParticles >= particles.Count - 2){
+        if (numberOfParticles >= particles.Count){
             highscorelist = GetHighScoreList();
             highscore.SetActive(true);
             GameObject yourScore = GameObject.Find("Your Score");

@@ -42,16 +42,16 @@ public class ChangeStateParticle : MonoBehaviour
             if (master.rpm < iceThreshold && state > 0)
             {
                 changeToIce();
-                sp.Write("i");
+                //sp.Write("i");
             }
             else if (master.rpm >= iceThreshold && master.rpm < waterThreshold && state != 1)
             {
                 changeToWater();
-                sp.Write("w");
+                //sp.Write("w");
             }
             else if (master.rpm >= waterThreshold && state < 2){
                 changeToGas();
-                sp.Write("g");
+                //sp.Write("g");
             }
         }
         catch{

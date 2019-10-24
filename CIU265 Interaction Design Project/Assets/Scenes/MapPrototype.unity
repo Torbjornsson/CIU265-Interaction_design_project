@@ -9569,8 +9569,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a73f2a07e20cb4b5d8b5a46428b1abc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iceThreshold: -0.5
-  waterThreshold: 1
+  iceThreshold: 0.5
+  waterThreshold: 2
 --- !u!1001 &1437616493
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11738,8 +11738,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a73f2a07e20cb4b5d8b5a46428b1abc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iceThreshold: 2
-  waterThreshold: 3
+  iceThreshold: 1
+  waterThreshold: 2
 --- !u!4 &1944655560 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6298022733953644951, guid: bda8cf92118c1dda6bcf8ae04b023abc,
