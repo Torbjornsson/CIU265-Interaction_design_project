@@ -26,32 +26,38 @@ public class ChangeStateParticle : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
+        if (sp.IsOpen)
+        {
         
-        // try{
-        //     if (inc > 1.0f){
-        //         inc = 0.0f;
-        //     }
-        //     else{
-        //         inc += 0.05f * Time.deltaTime;
-        //     }
-        //     string readLine = sp.ReadLine();
-        //     print(readLine);
+        try{
+            if (inc > 1.0f){
+                inc = 0.0f;
+            }
+            else{
+                inc += 0.05f * Time.deltaTime;
+            }
+            //string readLine = sp.ReadLine();
+            //print(readLine);
             
-        //     if (float.Parse(readLine) < iceThreshold)
-        //     {
-        //         changeToIce();
-        //         sp.Write("i");
-        //     }
-        //     else if (float.Parse(readLine) >= iceThreshold && float.Parse(readLine) < waterThreshold)
-        //     {
-        //         changeToWater();
-        //         sp.Write("w");
-        //     }
-        //     else if (float.Parse(readLine) >= waterThreshold){
-        //         changeToGas();
-        //         sp.Write("g");
-        //     }
-        // }
+            if (master.rpm < iceThreshold && state > 0)
+            {
+                changeToIce();
+                sp.Write("i");
+            }
+            else if (master.rpm >= iceThreshold && master.rpm < waterThreshold && state != 1)
+            {
+                changeToWater();
+                sp.Write("w");
+            }
+            else if (master.rpm >= waterThreshold && state < 2){
+                changeToGas();
+                sp.Write("g");
+            }
+        }
+        catch{
+
+        }
+        }
         if(Input.GetKeyDown(KeyCode.LeftArrow)) 
         {
             changeToIce();

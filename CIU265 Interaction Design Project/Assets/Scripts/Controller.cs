@@ -31,15 +31,17 @@ public class Controller : MonoBehaviour
     bool isGas = false;
     GameObject highscore;
     public static String serialPort =  "/dev/cu.usbmodem1421";
+    public string readLine;
+    public float rpm;
 
     //Serial Port init
     //name of serial port is different between computers, check under Port in Arduino IDE
 
     //Serial port for Mac, right USB
-    public SerialPort sp = new SerialPort(serialPort, 115200);
+    //public SerialPort sp = new SerialPort(serialPort, 115200);
 
     //Serial port for Windows, xx USB
-    // SerialPort sp = new SerialPort("COM3", 115200);
+    public SerialPort sp = new SerialPort("COM3", 115200);
 
     // Start is called before the first frame update
     public void Start()
@@ -64,13 +66,20 @@ public class Controller : MonoBehaviour
         //Start reading from serial monitor
         sp.Open();
         sp.ReadTimeout = 1;
+        rpm = 0.0f;
     }
 
     // Update is called once per frame
     public void Update()
     {
-        //string readLine = sp.ReadLine();
-        //print(readLine);
+        try{
+            readLine = sp.ReadLine();
+            print(readLine);
+            float.TryParse(readLine, out rpm);
+        }catch{
+
+        }
+        
         moveCamera();
 
         if (Input.GetKeyDown("9")){
