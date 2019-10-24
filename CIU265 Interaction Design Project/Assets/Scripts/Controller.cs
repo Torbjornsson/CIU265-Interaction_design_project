@@ -34,6 +34,10 @@ public class Controller : MonoBehaviour
     public string readLine;
     public float rpm;
 
+    private GameObject Pointy;
+
+    private Vector3 zAxis = new Vector3(0,0,1);
+
     //Serial Port init
     //name of serial port is different between computers, check under Port in Arduino IDE
 
@@ -59,8 +63,8 @@ public class Controller : MonoBehaviour
         blurController = effectCamera.GetComponent<BlurController>();
         meshWithText = GameObject.Find("MeshWithTextureFromCamera");
         textureWithShade = meshWithText.GetComponent<MeshRenderer>();
-        sp.Open();
-        sp.ReadTimeout = 1;
+        //sp.Open();
+        //sp.ReadTimeout = 1;
         GameObject[] ps = GameObject.FindGameObjectsWithTag("Particle"); 
         foreach(GameObject p in ps){
             if (p != null){
@@ -71,7 +75,7 @@ public class Controller : MonoBehaviour
        }
         maxParticles = particles.Count;
         //Start reading from serial monitor
-        
+        Pointy = GameObject.Find("Pointy Thing");
         rpm = 0.0f;
     }
 
@@ -91,10 +95,13 @@ public class Controller : MonoBehaviour
             Debug.Log(rpm);
             if (rpm < 0.05){
                 sp.Write("i");
+                Pointy.transform.rotation = Quaternion.AngleAxis(60, zAxis);
             }else if (rpm < 3){
                 sp.Write("w");
+                Pointy.transform.rotation = Quaternion.AngleAxis(0, zAxis);
             }else if (rpm >= 3){
                 sp.Write("g");
+                Pointy.transform.rotation = Quaternion.AngleAxis(-60, zAxis);
             }
         }catch{
 
