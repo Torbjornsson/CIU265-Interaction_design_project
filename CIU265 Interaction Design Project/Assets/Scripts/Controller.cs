@@ -97,8 +97,8 @@ public class Controller : MonoBehaviour
         }catch{
 
         }
-        
-        moveCamera();
+        if (particles.Count > 0)
+            moveCamera();
 
         if (Input.GetKeyDown("9")){
             ClearHighScoreList();
@@ -157,8 +157,9 @@ public class Controller : MonoBehaviour
     private int calculateScore(int numberOfParticles){
         float time = Time.timeSinceLevelLoad;
         int score = baseScore;        
+        float scoremultiplier = (float)numberOfParticles / (float)maxParticles;
 
-        score -= numberOfParticles - maxParticles;
+        score = (int)Mathf.Round(score * scoremultiplier);
         score -= (int)Mathf.Round(time);
         return Mathf.Max(0, score * scoreScale);
     }
@@ -169,6 +170,7 @@ public class Controller : MonoBehaviour
             if ((int)highscorelist[i] < score){
                 highscorelist.Insert(i, score);
                 PlayerPrefs.SetInt("Score"+i, score);
+                break;
             }
             i++;
         }
@@ -194,7 +196,7 @@ public class Controller : MonoBehaviour
         for (int i = 0; i < leaderboardsize && i < highscorelist.Count; i++){
             Text text = GameObject.Find("Score"+i).GetComponent<Text>();
             int test = (int)highscorelist[i];
-            text.text = test.ToString();
+            text.text = (i+1) + ": " + test.ToString();
         }
     }
 

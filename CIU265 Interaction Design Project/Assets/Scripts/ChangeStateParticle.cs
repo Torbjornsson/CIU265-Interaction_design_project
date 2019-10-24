@@ -58,15 +58,15 @@ public class ChangeStateParticle : MonoBehaviour
 
         }
         }
-        if(Input.GetKeyDown(KeyCode.LeftArrow)) 
+        if(Input.GetKeyDown("a")) 
         {
             changeToIce();
         }
-        if(Input.GetKeyDown(KeyCode.DownArrow)) 
+        if(Input.GetKeyDown("s")) 
         {
             changeToWater();
         }
-        if(Input.GetKeyDown(KeyCode.RightArrow)) 
+        if(Input.GetKeyDown("d")) 
         {
             changeToGas();
         }
