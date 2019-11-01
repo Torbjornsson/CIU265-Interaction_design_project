@@ -63,8 +63,13 @@ public class Controller : MonoBehaviour
         blurController = effectCamera.GetComponent<BlurController>();
         meshWithText = GameObject.Find("MeshWithTextureFromCamera");
         textureWithShade = meshWithText.GetComponent<MeshRenderer>();
-        //sp.Open();
-        //sp.ReadTimeout = 1;
+        try{
+            sp.Open();
+            sp.ReadTimeout = 1;
+        }
+        catch{
+            Debug.Log("Arduino inte kopplad");
+        }
         GameObject[] ps = GameObject.FindGameObjectsWithTag("Particle"); 
         foreach(GameObject p in ps){
             if (p != null){
@@ -169,8 +174,8 @@ public class Controller : MonoBehaviour
         float scoremultiplier = (float)numberOfParticles / (float)maxParticles;
 
         score = (int)Mathf.Round(score * scoremultiplier);
-        score -= (int)Mathf.Round(time);
-        return Mathf.Max(0, score * scoreScale);
+        score -= (int)Mathf.Round(time * 0.5f);
+        return Mathf.Max(50, score * scoreScale);
     }
 
     private void SaveHighScore(int score){
